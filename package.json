@@ -5,15 +5,18 @@
   "repository": "https://github.com/hoonlocal/node-react-auth.git",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "backend": "nodemon index.js"
   },
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "body-parser": "^1.20.2",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.3",
     "dotenv-webpack": "^8.0.1",
     "express": "^4.18.2",
     "install": "^0.13.0",
-    "mongoose": "^7.0.0"
+    "mongoose": "^7.0.0",
+    "nodemon": "^2.0.21"
   }
 }
