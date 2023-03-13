@@ -1,9 +1,10 @@
 const express = require('express');
 const app = express();
-const port = 5001;
+const port = 5002;
 const mongoose = require('mongoose');
 require('dotenv').config();
 const bodyParser = require('body-parser');
+const config = require('./config/key');
 const { User } = require('./models/User');
 
 // application/x-www-form-urlencoded 이렇게 된 데이터를 분석해서 가져올 수 있게 함
@@ -14,7 +15,7 @@ app.use(bodyParser.json());
 
 mongoose
   .connect(
-    `mongodb+srv://hyanghoon:${process.env.REACT_APP_MONGODB_PW}@cluster0.vdejef3.mongodb.net/?retryWrites=true&w=majority`
+    config.mongoURI
     // {
     //   useNewUrlParser: true,
     //   useUnifiedTopology: true,
@@ -25,7 +26,7 @@ mongoose
   .then(() => console.log('MongoDB Connected...'))
   .catch((err) => console.log(err));
 
-app.get('/', (req, res) => res.send('Hello World'));
+app.get('/', (req, res) => res.send('Hello World!!'));
 
 app.get('/login', (req, res) => res.send('Login'));
 
